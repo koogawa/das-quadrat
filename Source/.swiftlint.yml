@@ -5,9 +5,6 @@ disabled_rules:
   - leading_whitespace
   - trailing_whitespace
   - valid_docs
-  - variable_name
-  - variable_name_min_length
-  - mark
   - type_name
   
 line_length: 120
@@ -23,7 +20,10 @@ function_body_length:
 file_length:
   - 250 # warning
   - 300 # error
-  
-variable_name_max_length:
-  - 60 # warning
-  - 70 # error
+
+variable_name:
+  max_length:
+    - 60 # warning
+    - 70 # error
+  min_length:
+    - 1 # warning
