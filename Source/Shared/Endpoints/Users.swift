@@ -8,7 +8,7 @@
 
 import Foundation
 
-public let UserSelf = "self"
+public let userSelf = "self"
 
 open class Users: Endpoint {
     override var endpoint: String {
@@ -16,7 +16,7 @@ open class Users: Endpoint {
     }
     
     /** https://developer.foursquare.com/docs/users/users */
-    open func get(_ userId: String = UserSelf, completionHandler: ResponseClosure? = nil) -> Task {
+    open func get(_ userId: String = userSelf, completionHandler: ResponseClosure? = nil) -> Task {
         return self.getWithPath(userId, parameters: nil, completionHandler: completionHandler)
     }
     
@@ -37,55 +37,55 @@ open class Users: Endpoint {
     // MARK: - Aspects
     
     /** https://developer.foursquare.com/docs/users/checkins */
-    open func checkins(_ userId: String = UserSelf,
+    open func checkins(_ userId: String = userSelf,
         parameters: Parameters?, completionHandler: ResponseClosure? = nil) -> Task {
             let path = userId + "/checkins"
             return self.getWithPath(path, parameters: parameters, completionHandler: completionHandler)
     }
     
     /** https://developer.foursquare.com/docs/users/friends */
-    open func friends(_ userId: String = UserSelf,
+    open func friends(_ userId: String = userSelf,
         parameters: Parameters?, completionHandler: ResponseClosure? = nil) -> Task {
             let path = userId + "/friends"
             return self.getWithPath(path, parameters: parameters, completionHandler: completionHandler)
     }
     
     /** https://developer.foursquare.com/docs/users/lists */
-    open func lists(_ userId: String = UserSelf,
+    open func lists(_ userId: String = userSelf,
         parameters: Parameters?, completionHandler: ResponseClosure? = nil) -> Task {
             let path = userId + "/lists"
             return self.getWithPath(path, parameters: parameters, completionHandler: completionHandler)
     }
     
     /** https://developer.foursquare.com/docs/users/mayorships */
-    open func mayorships(_ userId: String = UserSelf, completionHandler: ResponseClosure? = nil) -> Task {
+    open func mayorships(_ userId: String = userSelf, completionHandler: ResponseClosure? = nil) -> Task {
         let path = userId + "/mayorships"
         return self.getWithPath(path, parameters: nil, completionHandler: completionHandler)
     }
     
     /** https://developer.foursquare.com/docs/users/photos */
-    open func photos(_ userId: String = UserSelf,
+    open func photos(_ userId: String = userSelf,
         parameters: Parameters?, completionHandler: ResponseClosure? = nil) -> Task {
             let path = userId + "/photos"
             return self.getWithPath(path, parameters: parameters, completionHandler: completionHandler)
     }
     
     /** https://developer.foursquare.com/docs/users/tastes */
-    open func tastes(_ userId: String = UserSelf,
+    open func tastes(_ userId: String = userSelf,
         parameters: Parameters?, completionHandler: ResponseClosure? = nil) -> Task {
             let path = userId + "/tastes"
             return self.getWithPath(path, parameters: parameters, completionHandler: completionHandler)
     }
     
     /** https://developer.foursquare.com/docs/users/venuehistory */
-    open func venuehistory(_ userId: String = UserSelf,
+    open func venuehistory(_ userId: String = userSelf,
         parameters: Parameters?, completionHandler: ResponseClosure? = nil) -> Task {
             let path = userId + "/venuehistory"
             return self.getWithPath(path, parameters: parameters, completionHandler: completionHandler)
     }
     
     /** https://developer.foursquare.com/docs/users/venuelikes */
-    open func venuelikes(_ userId: String = UserSelf,
+    open func venuelikes(_ userId: String = userSelf,
         parameters: Parameters?, completionHandler: ResponseClosure? = nil) -> Task {
             let path = userId + "/venuelikes"
             return self.getWithPath(path, parameters: parameters, completionHandler: completionHandler)
@@ -120,7 +120,7 @@ open class Users: Endpoint {
     
     /** https://developer.foursquare.com/docs/users/update */
     open func update(_ photoURL: URL, completionHandler: ResponseClosure? = nil) -> Task {
-        let path = UserSelf + "/update"
+        let path = userSelf + "/update"
         let task = self.uploadTaskFromURL(photoURL, path: path, parameters: nil, completionHandler: completionHandler)
         return task
     }

@@ -8,9 +8,9 @@
 
 import Foundation
 
-public let QuadratResponseErrorDomain   = "QuadratOauthErrorDomain"
-public let QuadratResponseErrorTypeKey  = "errorType"
-public let QuadratResponseErrorDetailKey = "errorDetail"
+public let quadratResponseErrorDomain   = "QuadratOauthErrorDomain"
+public let quadratResponseErrorTypeKey  = "errorType"
+public let quadratResponseErrorDetailKey = "errorDetail"
 
 
 /**
@@ -96,7 +96,7 @@ extension Result {
         if let JSON = JSON {
             if let meta = JSON["meta"] as? [String:AnyObject], let code = meta["code"] as? Int,
                 code < 200 || code > 299 {
-                    result.error = NSError(domain: QuadratResponseErrorDomain, code: code, userInfo: meta)
+                    result.error = NSError(domain: quadratResponseErrorDomain, code: code, userInfo: meta)
             }
             result.notifications = JSON["notifications"] as? [[String:AnyObject]]
             result.response = JSON["response"] as? [String:AnyObject]

@@ -24,7 +24,7 @@ public typealias Parameters = [String:String]
     Posted when session have access token, but server returns response with 401 HTTP code.
     Guaranteed to be posted an main thread.
 */
-public let QuadratSessionDidBecomeUnauthorizedNotification = "QuadratSessionDidBecomeUnauthorizedNotification"
+public let quadratSessionDidBecomeUnauthorizedNotification = "QuadratSessionDidBecomeUnauthorizedNotification"
 
 private var _sharedSession: Session?
 
@@ -214,7 +214,7 @@ open class Session {
     fileprivate func deathorizeAndNotify() {
         self.deauthorize()
         DispatchQueue.main.async {
-            let name = QuadratSessionDidBecomeUnauthorizedNotification
+            let name = quadratSessionDidBecomeUnauthorizedNotification
             NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: self)
         }
     }
